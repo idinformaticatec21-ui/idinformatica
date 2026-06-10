@@ -1,0 +1,1724 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ID Informática LTDA - Informática e Papelaria em Cruzeiro do Sul - AC. Formatação, manutenção, câmeras de segurança, suprimentos e muito mais.">
+  <meta name="keywords" content="informática, papelaria, manutenção de computadores, câmeras de segurança, Cruzeiro do Sul, Acre, formatação, impressoras">
+  <meta name="author" content="ID Informática LTDA">
+  <title>ID Informática LTDA - Informática e Papelaria</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===================== RESET & BASE ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --roxo:       #7c3aed;
+      --roxo-dark:  #5b21b6;
+      --azul:       #2563eb;
+      --azul-light: #3b82f6;
+      --preto:      #0a0a0f;
+      --preto-card: #111827;
+      --cinza:      #1f2937;
+      --borda:      #374151;
+      --texto:      #e5e7eb;
+      --texto-muted:#9ca3af;
+      --branco:     #ffffff;
+      --verde-wa:   #25d366;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--preto);
+      color: var(--texto);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Rajdhani', sans-serif; letter-spacing: 1px; }
+
+    a { text-decoration: none; color: inherit; }
+
+    img { max-width: 100%; display: block; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .btn-roxo {
+      background: linear-gradient(135deg, var(--roxo), var(--roxo-dark));
+      color: #fff;
+    }
+
+    .btn-roxo:hover {
+      background: linear-gradient(135deg, var(--roxo-dark), var(--roxo));
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4);
+    }
+
+    .btn-azul {
+      background: linear-gradient(135deg, var(--azul), var(--azul-light));
+      color: #fff;
+    }
+
+    .btn-azul:hover {
+      background: linear-gradient(135deg, var(--azul-light), var(--azul));
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--roxo);
+      color: var(--roxo);
+    }
+
+    .btn-outline:hover {
+      background: var(--roxo);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 12px;
+      position: relative;
+      color: var(--branco);
+    }
+
+    .section-title span { color: var(--roxo); }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--texto-muted);
+      font-size: 1rem;
+      margin-bottom: 50px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .divider {
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(to right, var(--roxo), var(--azul));
+      margin: 12px auto 20px;
+      border-radius: 2px;
+    }
+
+    section { padding: 90px 0; }
+
+    /* ===================== TOPBAR ===================== */
+    .topbar {
+      background: var(--cinza);
+      padding: 8px 0;
+      font-size: 0.82rem;
+      color: var(--texto-muted);
+      border-bottom: 1px solid var(--borda);
+    }
+
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .topbar a { color: var(--texto-muted); transition: color 0.2s; }
+    .topbar a:hover { color: var(--roxo); }
+    .topbar i { margin-right: 5px; color: var(--roxo); }
+
+    /* ===================== NAVBAR ===================== */
+    #navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 15, 0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--borda);
+      transition: all 0.3s;
+    }
+
+    #navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      padding-bottom: 14px;
+    }
+
+    .logo {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .logo span.id { color: var(--roxo); }
+    .logo span.info { color: var(--azul-light); }
+    .logo span.rest { color: var(--branco); }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--texto-muted);
+      transition: color 0.2s;
+      position: relative;
+      padding-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--roxo);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--branco); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-wa {
+      background: var(--verde-wa);
+      color: #fff !important;
+      padding: 8px 16px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem !important;
+      transition: background 0.3s, transform 0.2s !important;
+    }
+
+    .nav-wa:hover {
+      background: #1da851 !important;
+      transform: scale(1.05);
+    }
+
+    .nav-wa::after { display: none !important; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 5px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: var(--branco);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ===================== HERO ===================== */
+    #hero {
+      min-height: 92vh;
+      background: linear-gradient(135deg, #0a0a0f 0%, #1a0533 40%, #0c1a40 70%, #0a0a0f 100%);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 60px 0;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(124,58,237,0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(37,99,235,0.15) 0%, transparent 50%);
+    }
+
+    /* Grid decorativo */
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(124,58,237,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124,58,237,0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(124,58,237,0.15);
+      border: 1px solid rgba(124,58,237,0.3);
+      color: var(--roxo);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero-title {
+      font-size: 3.4rem;
+      line-height: 1.1;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--branco);
+    }
+
+    .hero-title .highlight {
+      background: linear-gradient(135deg, var(--roxo), var(--azul-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--texto-muted);
+      line-height: 1.8;
+      margin-bottom: 36px;
+    }
+
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .hero-stats {
+      display: flex;
+      gap: 36px;
+      margin-top: 48px;
+      padding-top: 36px;
+      border-top: 1px solid var(--borda);
+    }
+
+    .stat-item { text-align: center; }
+    .stat-number {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--roxo);
+    }
+    .stat-label { font-size: 0.8rem; color: var(--texto-muted); }
+
+    /* Cards flutuantes */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-circle {
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(37,99,235,0.2));
+      border: 2px solid rgba(124,58,237,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      animation: pulse-ring 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse-ring {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(124,58,237,0.3); }
+      50%       { box-shadow: 0 0 0 20px rgba(124,58,237,0); }
+    }
+
+    .hero-icon-main {
+      font-size: 7rem;
+      background: linear-gradient(135deg, var(--roxo), var(--azul-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .float-card {
+      position: absolute;
+      background: var(--preto-card);
+      border: 1px solid var(--borda);
+      border-radius: 10px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--texto);
+      animation: float 3s ease-in-out infinite;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+
+    .float-card i { font-size: 1.2rem; color: var(--roxo); }
+
+    .float-card:nth-child(2) { top: 20px; left: -30px; animation-delay: 0.5s; }
+    .float-card:nth-child(3) { bottom: 40px; left: -40px; animation-delay: 1s; }
+    .float-card:nth-child(4) { top: 50px; right: -30px; animation-delay: 1.5s; }
+    .float-card:nth-child(5) { bottom: 20px; right: -20px; animation-delay: 2s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-8px); }
+    }
+
+    /* ===================== SOBRE ===================== */
+    #sobre { background: var(--preto-card); }
+
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .sobre-img-wrapper {
+      position: relative;
+    }
+
+    .sobre-img-box {
+      background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(37,99,235,0.2));
+      border: 2px solid rgba(124,58,237,0.3);
+      border-radius: 16px;
+      height: 360px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sobre-img-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(37,99,235,0.1));
+    }
+
+    .sobre-badge-float {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: linear-gradient(135deg, var(--roxo), var(--roxo-dark));
+      color: #fff;
+      padding: 16px 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(124,58,237,0.4);
+    }
+
+    .sobre-badge-float strong {
+      display: block;
+      font-size: 2rem;
+      font-family: 'Rajdhani', sans-serif;
+    }
+
+    .sobre-text h2 {
+      font-size: 2rem;
+      margin-bottom: 6px;
+      color: var(--branco);
+    }
+
+    .sobre-text p {
+      color: var(--texto-muted);
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+
+    .sobre-info-list { list-style: none; display: grid; gap: 12px; margin-bottom: 30px; }
+
+    .sobre-info-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--texto-muted);
+      font-size: 0.95rem;
+    }
+
+    .sobre-info-list i {
+      width: 36px; height: 36px;
+      background: rgba(124,58,237,0.15);
+      border: 1px solid rgba(124,58,237,0.3);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--roxo);
+      flex-shrink: 0;
+    }
+
+    /* ===================== SERVIÇOS ===================== */
+    #servicos { background: var(--preto); }
+
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .servico-card {
+      background: var(--preto-card);
+      border: 1px solid var(--borda);
+      border-radius: 12px;
+      padding: 30px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .servico-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--roxo), var(--azul));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .servico-card:hover {
+      border-color: rgba(124,58,237,0.4);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    .servico-card:hover::before { transform: scaleX(1); }
+
+    .servico-icon {
+      width: 60px; height: 60px;
+      background: rgba(124,58,237,0.15);
+      border: 1px solid rgba(124,58,237,0.3);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: var(--roxo);
+      margin-bottom: 20px;
+    }
+
+    .servico-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--branco);
+    }
+
+    .servico-card p {
+      color: var(--texto-muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    /* ===================== PRODUTOS ===================== */
+    #produtos { background: var(--preto-card); }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 10px 24px;
+      border-radius: 6px;
+      border: 1px solid var(--borda);
+      background: transparent;
+      color: var(--texto-muted);
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--roxo);
+      color: #fff;
+      border-color: var(--roxo);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+
+    .produto-card {
+      background: var(--preto);
+      border: 1px solid var(--borda);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .produto-card:hover {
+      border-color: rgba(124,58,237,0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+    }
+
+    .produto-img {
+      height: 160px;
+      background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(37,99,235,0.1));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      border-bottom: 1px solid var(--borda);
+    }
+
+    .produto-info { padding: 16px; }
+    .produto-info h4 { font-size: 1rem; color: var(--branco); margin-bottom: 6px; }
+    .produto-info p { font-size: 0.82rem; color: var(--texto-muted); }
+
+    .produto-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      background: rgba(37,99,235,0.2);
+      color: var(--azul-light);
+      border: 1px solid rgba(37,99,235,0.3);
+      border-radius: 4px;
+      padding: 2px 8px;
+      margin-top: 8px;
+    }
+
+    /* ===================== CTA BANNER ===================== */
+    #cta {
+      background: linear-gradient(135deg, var(--roxo-dark) 0%, var(--roxo) 40%, var(--azul) 100%);
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    #cta .container { position: relative; z-index: 2; }
+    #cta h2 { font-size: 2.6rem; color: #fff; margin-bottom: 16px; }
+    #cta p { color: rgba(255,255,255,0.85); font-size: 1.05rem; margin-bottom: 36px; }
+
+    .cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+    .btn-white {
+      background: #fff;
+      color: var(--roxo);
+      font-weight: 700;
+    }
+
+    .btn-white:hover {
+      background: #f0f0f0;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .btn-wa {
+      background: var(--verde-wa);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-wa:hover {
+      background: #1da851;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    /* ===================== CONTATO ===================== */
+    #contato { background: var(--preto); }
+
+    .contato-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .contato-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+      color: var(--branco);
+    }
+
+    .contato-info p {
+      color: var(--texto-muted);
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .info-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: var(--preto-card);
+      border: 1px solid var(--borda);
+      border-radius: 10px;
+      padding: 18px;
+      margin-bottom: 14px;
+      transition: border-color 0.3s;
+    }
+
+    .info-card:hover { border-color: rgba(124,58,237,0.4); }
+
+    .info-icon {
+      width: 44px; height: 44px;
+      background: rgba(124,58,237,0.15);
+      border: 1px solid rgba(124,58,237,0.3);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--roxo);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .info-text strong {
+      display: block;
+      color: var(--branco);
+      font-size: 0.9rem;
+      margin-bottom: 2px;
+    }
+
+    .info-text span {
+      color: var(--texto-muted);
+      font-size: 0.88rem;
+    }
+
+    .info-text a { color: var(--texto-muted); transition: color 0.2s; }
+    .info-text a:hover { color: var(--roxo); }
+
+    /* FORM */
+    .form-card {
+      background: var(--preto-card);
+      border: 1px solid var(--borda);
+      border-radius: 16px;
+      padding: 36px;
+    }
+
+    .form-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 24px;
+      color: var(--branco);
+    }
+
+    .form-group { margin-bottom: 18px; }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--texto-muted);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--preto);
+      border: 1px solid var(--borda);
+      border-radius: 8px;
+      color: var(--texto);
+      font-size: 0.9rem;
+      font-family: 'Open Sans', sans-serif;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--roxo);
+      box-shadow: 0 0 0 3px rgba(124,58,237,0.15);
+    }
+
+    .form-group select option { background: var(--preto-card); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      font-size: 1rem;
+      background: linear-gradient(135deg, var(--roxo), var(--azul));
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: all 0.3s;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .btn-submit:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(124,58,237,0.4);
+    }
+
+    /* ===================== MAPA ===================== */
+    #mapa { background: var(--preto-card); padding: 60px 0; }
+
+    #mapa iframe {
+      width: 100%;
+      height: 380px;
+      border: none;
+      border-radius: 12px;
+      border: 1px solid var(--borda);
+    }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      background: var(--cinza);
+      border-top: 1px solid var(--borda);
+      padding: 60px 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand .logo { font-size: 1.5rem; margin-bottom: 14px; }
+
+    .footer-brand p {
+      color: var(--texto-muted);
+      font-size: 0.88rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .footer-social { display: flex; gap: 10px; }
+
+    .social-btn {
+      width: 38px; height: 38px;
+      border-radius: 8px;
+      background: var(--preto-card);
+      border: 1px solid var(--borda);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--texto-muted);
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+
+    .social-btn:hover {
+      background: var(--roxo);
+      border-color: var(--roxo);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    .footer-col h4 {
+      font-size: 1rem;
+      color: var(--branco);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--borda);
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a {
+      color: var(--texto-muted);
+      font-size: 0.88rem;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer-col ul li a::before {
+      content: '›';
+      color: var(--roxo);
+      font-size: 1.1rem;
+    }
+    .footer-col ul li a:hover { color: var(--roxo); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--borda);
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-bottom p {
+      color: var(--texto-muted);
+      font-size: 0.82rem;
+    }
+
+    .footer-bottom span { color: var(--roxo); }
+
+    /* ===================== WA FLUTUANTE ===================== */
+    .wa-float {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+
+    .wa-float-btn {
+      width: 58px; height: 58px;
+      background: var(--verde-wa);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      color: #fff;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+      animation: wa-pulse 2s ease-in-out infinite;
+      transition: transform 0.3s;
+    }
+
+    .wa-float-btn:hover { transform: scale(1.1); }
+
+    @keyframes wa-pulse {
+      0%, 100% { box-shadow: 0 6px 20px rgba(37,211,102,0.5); }
+      50%       { box-shadow: 0 6px 30px rgba(37,211,102,0.8); }
+    }
+
+    .wa-tooltip {
+      background: var(--preto-card);
+      border: 1px solid var(--borda);
+      color: var(--texto);
+      font-size: 0.82rem;
+      padding: 8px 14px;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+
+    /* ===================== SCROLL TO TOP ===================== */
+    #scrollTop {
+      position: fixed;
+      bottom: 100px; right: 28px;
+      z-index: 9998;
+      width: 42px; height: 42px;
+      background: var(--roxo);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    #scrollTop:hover {
+      background: var(--roxo-dark);
+      transform: translateY(-3px);
+    }
+
+    /* ===================== TOAST ===================== */
+    #toast {
+      position: fixed;
+      bottom: 28px; left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--preto-card);
+      border: 1px solid var(--roxo);
+      color: var(--texto);
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      z-index: 99999;
+      transition: transform 0.4s ease;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+
+    #toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* ===================== RESPONSIVO ===================== */
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        background: rgba(10,10,15,0.98);
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        gap: 24px;
+        transform: translateX(-100%);
+        transition: transform 0.4s ease;
+        z-index: 999;
+      }
+
+      .nav-links.open { transform: translateX(0); }
+      .nav-links a { font-size: 1.2rem; }
+      .hamburger { display: flex; z-index: 1000; }
+
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-title { font-size: 2.2rem; }
+      .hero-btns { justify-content: center; }
+      .hero-visual { display: none; }
+      .hero-stats { justify-content: center; }
+
+      .sobre-grid { grid-template-columns: 1fr; }
+      .sobre-img-wrapper { display: none; }
+
+      .contato-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+
+      section { padding: 60px 0; }
+    }
+
+    @media (max-width: 480px) {
+      .topbar .container { flex-direction: column; gap: 4px; font-size: 0.75rem; }
+      .hero-stats { gap: 20px; }
+      .stat-number { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== TOPBAR ===================== -->
+  <div class="topbar">
+    <div class="container">
+      <div>
+        <i class="fas fa-map-marker-alt"></i>
+        Rua Boulevard Thaumaturgo, 2653 – Bairro Floresta, Cruzeiro do Sul – AC
+      </div>
+      <div style="display:flex; gap:20px; flex-wrap:wrap;">
+        <a href="tel:+5568992107129"><i class="fas fa-phone"></i>(68) 99210-7129</a>
+        <a href="mailto:idinformaticatec21@gmail.com"><i class="fas fa-envelope"></i>idinformaticatec21@gmail.com</a>
+        <span><i class="fas fa-clock"></i>08:00 – 17:30</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="logo">
+        <span class="id">ID</span>
+        <span class="info"> INFORMÁTICA</span>
+        <span class="rest"> LTDA</span>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#contato">Orçamento</a></li>
+        <li>
+          <a href="https://wa.me/5568992107129" target="_blank" class="nav-wa">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <div class="hero-badge">
+            <i class="fas fa-bolt"></i> Cruzeiro do Sul – AC
+          </div>
+          <h1 class="hero-title">
+            Tecnologia e Papelaria<br>
+            <span class="highlight">em um só lugar</span>
+          </h1>
+          <p class="hero-desc">
+            A ID INFORMÁTICA LTDA oferece serviços especializados em manutenção de computadores,
+            câmeras de segurança, impressoras e uma linha completa de produtos de papelaria e informática.
+            Atendemos presencialmente e online com agilidade, qualidade e preço justo.
+          </p>
+          <div class="hero-btns">
+            <a href="#contato" class="btn btn-roxo">
+              <i class="fas fa-file-alt"></i> Solicitar Orçamento
+            </a>
+            <a href="#servicos" class="btn btn-outline">Ver Serviços</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-number">4+</div>
+              <div class="stat-label">Anos no mercado</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">500+</div>
+              <div class="stat-label">Clientes atendidos</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">7</div>
+              <div class="stat-label">Tipos de serviços</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-circle">
+            <i class="fas fa-laptop-code hero-icon-main"></i>
+            <div class="float-card">
+              <i class="fas fa-tools"></i> Manutenção PC
+            </div>
+            <div class="float-card">
+              <i class="fas fa-print"></i> Impressoras
+            </div>
+            <div class="float-card">
+              <i class="fas fa-camera"></i> Câmeras de Segurança
+            </div>
+            <div class="float-card">
+              <i class="fas fa-pen"></i> Papelaria
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SOBRE ===================== -->
+  <section id="sobre">
+    <div class="container">
+      <div class="sobre-grid">
+        <div class="sobre-img-wrapper">
+          <div class="sobre-img-box">
+            <i class="fas fa-store" style="position:relative;z-index:1;"></i>
+            <div class="sobre-badge-float">
+              <strong>4+</strong>
+              Anos de<br>experiência
+            </div>
+          </div>
+        </div>
+        <div class="sobre-text">
+          <h2>Sobre a <span style="color:var(--roxo)">ID Informática LTDA</span></h2>
+          <div class="divider" style="margin-left:0;"></div>
+          <p>
+            A ID INFORMÁTICA LTDA nasceu com o propósito de democratizar o acesso à tecnologia e
+            aos materiais de papelaria em Cruzeiro do Sul – Acre. Em 4 anos de atuação, nos tornamos
+            referência na região ao oferecer serviços técnicos de qualidade e uma vasta linha de produtos.
+          </p>
+          <p>
+            Atendemos clientes residenciais, comerciais, estudantes e empresas com foco em transparência,
+            agilidade e resultado. Nossa equipe é treinada para oferecer o melhor suporte técnico e o
+            melhor atendimento ao cliente.
+          </p>
+          <ul class="sobre-info-list">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              Rua Boulevard Thaumaturgo, 2653 – Bairro Floresta, Cruzeiro do Sul – AC
+            </li>
+            <li>
+              <i class="fab fa-whatsapp"></i>
+              <a href="https://wa.me/5568992107129" target="_blank">(68) 99210-7129</a>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:idinformaticatec21@gmail.com">idinformaticatec21@gmail.com</a>
+            </li>
+            <li>
+              <i class="fas fa-clock"></i>
+              Segunda a Sábado: 08:00 – 17:30
+            </li>
+            <li>
+              <i class="fab fa-instagram"></i>
+              <a href="https://instagram.com/id_informatica2026" target="_blank">@id_informatica2026</a>
+            </li>
+          </ul>
+          <a href="#contato" class="btn btn-roxo">Fale conosco</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVIÇOS ===================== -->
+  <section id="servicos">
+    <div class="container">
+      <h2 class="section-title">Nossos <span>Serviços</span></h2>
+      <div class="divider"></div>
+      <p class="section-subtitle">
+        Soluções completas em informática, segurança e suprimentos para você e sua empresa.
+      </p>
+      <div class="servicos-grid">
+
+        <div class="servico-card">
+          <div class="servico-icon"><i class="fas fa-desktop"></i></div>
+          <h3>Formatação de Desktops</h3>
+          <p>Instalação limpa do sistema operacional, configuração completa, instalação de programas e otimização de desempenho.</p>
+        </div>
+
+        <div class="servico-card">
+          <div class="servico-icon"><i class="fas fa-microchip"></i></div>
+          <h3>Instalação de Drivers</h3>
+          <p>Atualização e instalação de drivers de vídeo, áudio, rede, placa-mãe e demais periféricos do seu computador.</p>
+        </div>
+
+        <div class="servico-card">
+          <div class="servico-icon"><i class="fas fa-sync-alt"></i></div>
+          <h3>Atualizações de Sistema</h3>
+          <p>Manutenção preventiva com patches de segurança, atualizações de versão e limpeza de arquivos temporários.</p>
+        </div>
+
+        <div class="servico-card">
+          <div class="servico-icon"><i class="fas fa-exchange-alt"></i></div>
+          <h3>Substituição de Peças</h3>
+          <p>Troca de HD, SSD, memória RAM, fonte de alimentação, placa de vídeo e outros componentes com garantia.</p>
+        </div>
+
+        <div class="servico-card">
+          <div class="servico-icon"><i class="fas fa-wind"></i></div>
+          <h3>Limpeza e Manutenção</h3>
+          <p>Limpeza interna completa, remoção de poeira, verificação de temperatura e revisão geral do equipamento.</p>
+        </div>
+
+        <div class="servico-card">
+          <div class="servico-icon"><i class="fas fa-print"></i></div>
+          <h3>Manutenção de Impressoras</h3>
+          <p>Limpeza de cabeçote, reset de cartucho, recarga de tinta, troca de toner e reparo de erros de impressão.</p>
+        </div>
+
+        <div class="servico-card">
+          <div class="servico-icon"><i class="fas fa-camera"></i></div>
+          <h3>Câmeras de Segurança</h3>
+          <p>Instalação, configuração, limpeza e manutenção de sistemas de câmeras de segurança residencial e comercial.</p>
+        </div>
+
+      </div>
+
+      <div style="text-align:center; margin-top:40px;">
+        <a href="#contato" class="btn btn-roxo">
+          <i class="fas fa-calendar-check"></i> Agendar Serviço
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PRODUTOS ===================== -->
+  <section id="produtos">
+    <div class="container">
+      <h2 class="section-title">Nossos <span>Produtos</span></h2>
+      <div class="divider"></div>
+      <p class="section-subtitle">
+        Informática, acessórios e papelaria: tudo o que você precisa para trabalhar, estudar e criar.
+      </p>
+
+      <div class="tabs">
+        <button class="tab-btn active" onclick="showTab('informatica', this)">
+          <i class="fas fa-laptop"></i> Informática
+        </button>
+        <button class="tab-btn" onclick="showTab('suprimentos', this)">
+          <i class="fas fa-print"></i> Suprimentos
+        </button>
+        <button class="tab-btn" onclick="showTab('papelaria', this)">
+          <i class="fas fa-pen"></i> Papelaria
+        </button>
+      </div>
+
+      <!-- Tab Informática -->
+      <div class="tab-content active" id="tab-informatica">
+
+        <div class="produto-card">
+          <div class="produto-img">🖱️</div>
+          <div class="produto-info">
+            <h4>Mouse com Fio</h4>
+            <p>Precisão e durabilidade para o dia a dia.</p>
+            <span class="produto-tag">Informática</span>
+          </div>
+        </div>
+
+        <div class="produto-card">
+          <div class="produto-img">🖱️</div>
+          <div class="produto-info">
+            <h4>Mouse Sem Fio</h4>
+            <p>Liberdade de movimento sem cabos.</p>
+            <span class="produto-tag">Informática</span>
+          </div>
+        </div>
+
+        <div class="produto-card">
+          <div class="produto-img">🎮</div>
+          <div class="produto-info">
+            <h4>Mouse Pad Gamer</h4>
+            <p>Grande, antiderrapante e resistente.</p>
+            <span class="produto-tag">Gamer</span>
+          </div>
+        </div>
+
+        <div class="produto-card">
+          <div class="produto-img">⌨️</div>
+          <div class="produto-info">
+            <h4>Teclado</h4>
+            <p>Padrão e multimídia para maior produtividade.</p>
+            <span class="produto-tag">Informática</span>
+          </div>
+        </div>
+
+        <div class="produto-card">
+          <div class="produto-img">🖥️</div>
+          <div class="produto-info">
+            <h4>Monitor</h4>
+            <p>Diversas polegadas para home office e uso profissional.</p>
+            <span class="produto-tag">Informática</span>
+          </div>
+        </div>
+
+        <div class="produto-card">
+          <div class="produto-img">🎧</div>
+          <div class="produto-info">
+            <h4>Fone de Ouvido</h4>
+            <p>Com e sem fio, com microfone e sem.</p>
+            <span class="produto-tag">Acessório</span>
+          </div>
+        </div>
+
+        <div class="produto-card">
+          <div class="produto-img">🔌</div>
+          <div class="produto-info">
+            <h4>Cabos e Adaptadores</h4>
+            <p>HDMI, USB, VGA, USB-C e muito mais.</p>
+            <span class="produto-tag">Acessório</span>
+          </div>
+        </div>
+
+        <div class="produto-card">
+          <div class="produto-img">🔋</div>
+          <div class="produto-info">
+            <h4>Baterias Recarregáveis</h4>
+            <p>AA, AAA com carregador incluso.</p>
+            <span class="produto-tag">Acessório</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tab Suprimentos -->
+      <div class="tab-content" id="tab-suprimentos">
+
+        <div class="produto-card">
+          <div class="produto-img">🖨️</div>
+          <div class="produto-info">
+            <h4>Refil de Tinta Original</h4>
+            <p>Compatível com as principais marcas: HP, Epson, Canon, Brother.</p>
+            <span class="produto-tag">Suprimento</span>
+          </div>
+        </div>
+
+        <div class="produto-card">
+          <div class="produto-img">🖨️</div>
+          <div class="produto-info">
+            <h4>Refil de Tinta Compatível</h4>
+            <p>Excelente custo-benefício com qualidade garantida.</p>
+            <span class="produto-tag">Suprimento</span>
+          </div>
+        </div>
+
+        <div class="produto-card">
+          <div class="produto-img">📦</div>
+          <div class="produto-info">
+            <h4>Toner Original</h4>
+            <p>Para impressoras laser das principais marcas.</p>
+            <span class="produto-tag">Suprimento</span>
+          </div>
+        </div>
+
+        <div class="produto-card">
+          <div class="produto-img">📦</div>
+          <div class="produto-info">
+            <h4>Toner Compatível</h4>
+            <p>Rendimento e qualidade com menor custo.</p>
+            <span class="produto-tag">Suprimento</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tab Papelaria -->
+      <div class="tab-content" id="tab-papelaria">
+
+        <div class="produto-card">
+          <div class="produto-img">📓</div>
+          <div class="produto-info">
+            <h4>Cadernos</h4>
+            <p>Universitários, brochuras e capa dura.</p>
+            <span class="produto-tag">Papelaria</span>
+          </div>
+        </div>
+
+        <div class="produto-card">
+          <div class="produto-img">🖊️</div>
+          <div class="produto-info">
+            <h4>Canetas</h4>
+            <p>Esferográficas, gel, finas e coloridas.</p>
+            <span class="produto-tag">Papelaria</span>
+          </div>
+        </div>
+
+        <div class="produto-card">
+          <div class="produto-img">🖍️</div>
+          <div class="produto-info">
+            <h4>Marcadores de Texto</h4>
+            <p>Várias cores para destacar e organizar.</p>
+            <span class="produto-tag">Papelaria</span>
+          </div>
+        </div>
+
+        <div class="produto-card">
+          <div class="produto-img">📐</div>
+          <div class="produto-info">
+            <h4>Materiais Escolares</h4>
+            <p>Réguas, esquadros, compassos, lápis e muito mais.</p>
+            <span class="produto-tag">Escolar</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section id="cta">
+    <div class="container">
+      <h2>Precisa de um serviço ou produto?</h2>
+      <p>Solicite um orçamento agora mesmo ou fale direto com nossa equipe pelo WhatsApp. Respondemos rápido!</p>
+      <div class="cta-btns">
+        <a href="#contato" class="btn btn-white">
+          <i class="fas fa-file-alt"></i> Solicitar Orçamento
+        </a>
+        <a href="https://wa.me/5568992107129?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="btn btn-wa">
+          <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTATO ===================== -->
+  <section id="contato">
+    <div class="container">
+      <h2 class="section-title">Solicite seu <span>Orçamento</span></h2>
+      <div class="divider"></div>
+      <p class="section-subtitle">
+        Preencha o formulário abaixo e retornaremos o mais rápido possível.
+      </p>
+      <div class="contato-grid">
+
+        <div class="contato-info">
+          <h3>Informações de <span style="color:var(--roxo)">Contato</span></h3>
+          <p>Estamos prontos para atender você. Entre em contato por qualquer um dos canais abaixo.</p>
+
+          <div class="info-card">
+            <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="info-text">
+              <strong>Endereço</strong>
+              <span>Rua Boulevard Thaumaturgo, 2653<br>Bairro Floresta – Cruzeiro do Sul, AC</span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon"><i class="fab fa-whatsapp"></i></div>
+            <div class="info-text">
+              <strong>WhatsApp / Telefone</strong>
+              <a href="https://wa.me/5568992107129" target="_blank">(68) 99210-7129</a>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon"><i class="fas fa-envelope"></i></div>
+            <div class="info-text">
+              <strong>E-mail</strong>
+              <a href="mailto:idinformaticatec21@gmail.com">idinformaticatec21@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon"><i class="fas fa-clock"></i></div>
+            <div class="info-text">
+              <strong>Horário de Funcionamento</strong>
+              <span>Segunda a Sábado: 08:00 – 17:30</span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon"><i class="fab fa-instagram"></i></div>
+            <div class="info-text">
+              <strong>Instagram</strong>
+              <a href="https://instagram.com/id_informatica2026" target="_blank">@id_informatica2026</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h3>Envie sua <span style="color:var(--roxo)">Mensagem</span></h3>
+          <form id="orcamentoForm" onsubmit="enviarForm(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Nome completo *</label>
+                <input type="text" name="nome" placeholder="Seu nome" required>
+              </div>
+              <div class="form-group">
+                <label>WhatsApp *</label>
+                <input type="tel" name="telefone" placeholder="(68) 99999-9999" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>E-mail</label>
+              <input type="email" name="email" placeholder="seu@email.com">
+            </div>
+            <div class="form-group">
+              <label>Tipo de solicitação *</label>
+              <select name="tipo" required>
+                <option value="">Selecione...</option>
+                <option value="servico-informatica">Serviço de Informática</option>
+                <option value="produto-informatica">Produto de Informática</option>
+                <option value="produto-papelaria">Produto de Papelaria</option>
+                <option value="outros">Outros</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Mensagem *</label>
+              <textarea name="mensagem" placeholder="Descreva o que você precisa..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">
+              Enviar pedido de orçamento
+            </button>
+          </form>
+          <p style="margin-top:10px;font-size:0.8rem;color:var(--texto-muted);">
+            Ao enviar, seus dados serão utilizados apenas para retorno do contato.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MAPA ===================== -->
+  <section id="mapa">
+    <div class="container">
+      <h2 class="section-title">Como <span>Chegar</span></h2>
+      <div class="divider"></div>
+      <p class="section-subtitle">
+        Venha nos visitar em nossa loja física em Cruzeiro do Sul – AC.
+      </p>
+      <!-- Você pode ajustar o mapa para o endereço exato depois -->
+      <iframe
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.1653885406044!2d-72.673!3d-7.63!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zQ3J1emVpcm8gZG8gU3Vs!5e0!3m2!1spt-BR!2sbr!4v1700000000000">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="id">ID</span>
+            <span class="info"> INFORMÁTICA</span>
+            <span class="rest"> LTDA</span>
+          </div>
+          <p>
+            Informática, papelaria e soluções em tecnologia para Cruzeiro do Sul – AC e região.
+            Atendimento presencial e online, com foco em qualidade e confiança.
+          </p>
+          <div class="footer-social">
+            <a href="https://instagram.com/id_informatica2026" target="_blank" class="social-btn">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <!-- Se tiver Facebook, basta trocar o link abaixo -->
+            <a href="#" target="_blank" class="social-btn">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Institucional</h4>
+          <ul>
+            <li><a href="#sobre">Sobre a empresa</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#produtos">Produtos</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Atendimento</h4>
+          <ul>
+            <li><a href="#contato">Contato</a></li>
+            <li><a href="#mapa">Localização</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <ul>
+            <li><a href="tel:+5568992107129">(68) 99210-7129</a></li>
+            <li><a href="mailto:idinformaticatec21@gmail.com">idinformaticatec21@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="anoAtual"></span> ID INFORMÁTICA LTDA. Todos os direitos reservados.</p>
+        <p>CNPJ e dados fiscais podem ser exibidos aqui, se desejar.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== BOTÕES FLUTUANTES ===================== -->
+  <div class="wa-float">
+    <div class="wa-tooltip">Atendimento rápido</div>
+    <a href="https://wa.me/5568992107129?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="wa-float-btn">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <button id="scrollTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <div id="toast">Orçamento aberto no WhatsApp!</div>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script>
+    // Menu mobile
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // Tabs de produtos
+    function showTab(tab, el) {
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      document.getElementById('tab-' + tab).classList.add('active');
+
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    // ScrollTop
+    const scrollBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      scrollBtn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    });
+
+    // Ano no footer
+    document.getElementById('anoAtual').textContent = new Date().getFullYear();
+
+    // Formulário abrindo WhatsApp
+    function enviarForm(e) {
+      e.preventDefault();
+      const form = e.target;
+      const nome = form.nome.value;
+      const telefone = form.telefone.value;
+      const email = form.email.value || 'não informado';
+      const tipo = form.tipo.value;
+      const mensagem = form.mensagem.value;
+
+      const tipoTexto = {
+        'servico-informatica': 'Serviço de Informática',
+        'produto-informatica': 'Produto de Informática',
+        'produto-papelaria': 'Produto de Papelaria',
+        'outros': 'Outros'
+      }[tipo] || 'Não informado';
+
+      const texto = 
+        `Olá! Vim pelo site e gostaria de um orçamento.%0A%0A` +
+        `*Nome:* ${nome}%0A` +
+        `*WhatsApp:* ${telefone}%0A` +
+        `*E-mail:* ${email}%0A` +
+        `*Tipo:* ${tipoTexto}%0A` +
+        `*Mensagem:* ${mensagem}`;
+
+      const url = `https://wa.me/5568992107129?text=${texto}`;
+      window.open(url, '_blank');
+
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+
+      form.reset();
+    }
+  </script>
+</body>
+</html>
